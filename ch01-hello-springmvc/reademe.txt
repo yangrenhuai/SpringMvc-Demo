@@ -1,0 +1,19 @@
+需求：
+用户在页面发起一个请求，请求交给springmvc的控制器对象。
+并显示请求处理结果（在页面上显示欢迎语句）
+
+实现步骤：
+1.新建web maven工程
+2.加入spring-webmvc依赖 ，jsp、servlet依赖
+3.在web.xml文件中，注册对象DispatcherServlet
+  1）DispatcherServlet叫中央调度器，是一个Servlet，他的父类是继承自HttpServlet，具备Servlet的所有功能
+  2）DispatcherServlet也叫前端控制器
+  3）DispatcherServlet负责接收用户提交的请求，调用其他的控制器对象，并把处理结果显示给用户
+4.创建一个发起请求的页面index.jsp
+5.创建一个控制器类
+  1）在类的上面添加@Controller注解，创建对象，并放入springmvc容器中
+  2）在类的方法上面添加@RequestMapping注解
+6.创建一个作为结果的jsp，显示请求的处理结果
+7.创建springmvc的配置文件
+  1）声明组件扫描器，指定@Controller注解所在的报名
+  2）声明视图解析器，帮组处理视图
